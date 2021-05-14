@@ -11,6 +11,6 @@
 
 ## 목차
 
-1. [kubectl](./kubectl)
+1. [kubectl](./kubectl/kubectl.md)
 2. [Pod](./pod/pod.md)
 3. [ReplicaSet](./replicaset/replicaset.md)

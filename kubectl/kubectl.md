@@ -19,5 +19,3 @@ $ kubectl get nodes -o json
 # kubectl describe type/name
 $ kubectl describe node/<node name>
 ```
-
-* 
