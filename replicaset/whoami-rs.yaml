@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: whoami-rs
+spec:
+  # 유지할 pod 개수
+  replicas: 1
+  # Pod 의 개수를 유지할 때 다음 selector 를 기준으로 판단한다
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+  # 실행할 pod
+  template:
+    metadata:
+      # Selector 에서 선언한 label 을 metadata 에서 명시한다
+      labels:
+        type: app
+        service: whoami
+    spec:
+      containers:
+        - name: whoami
+          image: subicura/whoami:1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 4567
