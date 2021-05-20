@@ -8,9 +8,11 @@
 ## TODO
 * istio 를 이용한 MSA 네트워킹
 * Kubernetes 아키텍처 정리
+* Kubernetes cluster 구성
 
 ## 목차
 
 1. [kubectl](./kubectl/kubectl.md)
 2. [Pod](./pod/pod.md)
 3. [ReplicaSet](./replicaset/replicaset.md)
+4. [Deployment](./deployment/deployment.md)
