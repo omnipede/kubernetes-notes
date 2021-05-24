@@ -1,0 +1,68 @@
+# ClientIP for redis pod
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  ports:
+    - port: 6379
+      protocol: TCP
+  # type 이 db 고 service 가 redis 인 pod 을 찾는다.
+  selector:
+    type: db
+    service: redis
+
+# 굳이 파일을 나누지 않아도 된다.
+---
+
+# Redis pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: db
+      service: redis
+  template:
+    metadata:
+      labels:
+        type: db
+        service: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+              protocol: TCP
+
+---
+
+# Redis 를 사용하는 어플리케이션
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami
+spec:
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+    spec:
+      containers:
+        - name: whoami
+          image: subicura/whoami-redis:1
+          env:
+            - name: REDIS_HOST
+              # Service 의 metadata.name 를 넣는다
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"

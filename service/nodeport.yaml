@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami
+spec:
+  type: NodePort
+  ports:
+    - port: 4567
+      protocol: TCP
+  selector:
+    type: app
+    service: whoami
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+    spec:
+      containers:
+        - name: whoami
+          image: subicura/whoami-redis:1
+          env:
+            - name: REDIS_HOST
+              # Service 의 metadata.name 를 넣는다
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"

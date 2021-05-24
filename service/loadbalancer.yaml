@@ -1,0 +1,79 @@
+# Whoami application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+    spec:
+      containers:
+        - name: whoami
+          image: subicura/whoami-redis:1
+          env:
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
+
+---
+# LoadBalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8000
+      targetPort: 4567
+      protocol: TCP
+  selector:
+    type: app
+    service: whoami
+
+---
+# Redis deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      type: db
+      service: redis
+  template:
+    metadata:
+      labels:
+        type: db
+        service: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+              protocol: TCP
+
+---
+# ClusterIP of redis
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  ports:
+    - port: 6379
+      protocol: TCP
+  selector:
+    type: db
+    service: redis
