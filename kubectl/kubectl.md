@@ -19,3 +19,13 @@ $ kubectl get nodes -o json
 # kubectl describe type/name
 $ kubectl describe node/<node name>
 ```
+
+* Delete kube objects
+
+```
+$ kubectl delete -f path/to/YOUR_KUBE_FILE.yaml
+# kubectl delete type/object
+
+$ kubectl delete pods --all
+$ kubectl delete deployment --all
+```
