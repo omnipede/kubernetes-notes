@@ -8,6 +8,7 @@ $ alias k='kubectl'
 * Get kube objects (nodes or pods or services or etc ...)
 ```
 $ kubectl get all
+$ kubectl get all --all-namespaces
 $ kubectl get nodes
 $ kubectl get nodes -o wide
 $ kubectl get nodes -o yaml
