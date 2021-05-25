@@ -21,3 +21,4 @@
 3. [ReplicaSet](./replicaset/replicaset.md)
 4. [Deployment](./deployment/deployment.md)
 5. [Service](./service/service.md)
+6. [Ingress](./ingress/ingress.md)

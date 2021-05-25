@@ -1,0 +1,68 @@
+# Ingress 예제. 아래와 같이 구성함.
+# ingress-controller --> ingress (Domain: c0b77ef334e6.ngrok.io) --> ClusterIP --> whoami-v1
+# 여기서 Domain 은 ngrok 를 사용해서 임의로 생성함.
+
+# Ingress resource
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami-v1
+  annotations:
+    ingress.kubernetes.io/rewrite-target: "/"
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    # (CHANGE ME) Domain
+    - host: "c0b77ef334e6.ngrok.io"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: whoami-v1
+                port:
+                  number: 4567
+
+---
+# whoami application pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+      version: v1
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+        version: v1
+    spec:
+      containers:
+        - name: whoami
+          image: subicura/whoami:1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 4567
+
+---
+# Whoami clusterIP
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-v1
+spec:
+  ports:
+    - port: 4567
+      protocol: TCP
+  selector:
+    type: app
+    service: whoami
+    version: v1
