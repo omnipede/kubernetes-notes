@@ -56,7 +56,7 @@ Events:            <none>
 
 ## NodePort
 클러스터 IP 뿐 아니라 모든 k8s 노드의 IP, 포트를 통해서 서비스에 접근이 가능하게 한다.
-[예제](./nodeport.yaml) 를 실행하면 NodePort service object 가 실행된다.
+[예제](nodeport.yaml) 를 실행하면 NodePort service object 가 실행된다.
 
 ```
 NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
@@ -79,8 +79,8 @@ service/whoami       NodePort    10.99.135.11   <none>        4567:31305/TCP   3
 
 ## LoadBalancer
 AWS, GCP,과 같은 Public Cloud 서비스에서 지원하는 쿠버네티스 로드밸런서 장비를 사용하여 서비스를 외부에 노출시킨다.
-[예제](./loadbalancer.yaml) 참조.
+[예제](loadbalancer.yaml) 참조.
 
 ## ExternalName
 서비스 name 을 externalName 값 (=도메인) 과 매칭한다. 이 타입은 클러스터 내부에서 외부로 접근할 때 주로 사용한다 (외부 DB 서버 접속 등).
-[예제](./externalname.yaml) 참조.
+[예제](externalname.yaml) 참조.

@@ -35,13 +35,13 @@ deployment.apps/ingress-nginx-controller   1/1     1            1           15h
 그리고 브라우저로 ```ingress-nginx-controller``` service 의 포트에 접속하면 아직 ingress 에 k8s 서비스가 연동되어 있지 않아서 ```Not found```에러 페이지가 뜬다.
 ![image](https://user-images.githubusercontent.com/41066039/119438647-a69e5500-bd5b-11eb-9675-592cc0f601d0.png)
 
-[예제](./ingress-v1.yaml) 를 실행시키면 ingress 에 k8s 서비스를 연동해볼 수 있다.
+[예제](ingress-v1.yaml) 를 실행시키면 ingress 에 k8s 서비스를 연동해볼 수 있다.
 단, 예제 실행 전, ingress 에 domain name 을 붙여야한다. [ngrok](https://ngrok.com/) 라는 툴을 이용하면 간단하게 도메인을 생성할 수 있다.
 ```ngrok``` 를 이용해서 도메인 생성 시 도메인이 ```ingress-controller``` 의 포트로 포워딩하도록 한다. 현재 생성된 ingress controller 의 포트가 31647 이므로 31647 로 포워딩하자.
 ```
 $ ngrok http 31647
 ```
-포트포워딩 설정 후 ngrok 로 생성된 도메인을 [예제](./ingress-v1.yaml) 에 넣어주자.
+포트포워딩 설정 후 ngrok 로 생성된 도메인을 [예제](ingress-v1.yaml) 에 넣어주자.
 
 ```
 apiVersion: networking.k8s.io/v1
@@ -57,5 +57,5 @@ spec:
     - host: "c0b77ef334e6.ngrok.io"
       ...
 ```
-예제에 도메인을 넣은 뒤 [예제](./ingress-v1.yaml) 를 실행시키고 브라우저를 통해 도메인에 접속하면 쿠버네티스 서비스를 확인할 수 있다.
+예제에 도메인을 넣은 뒤 [예제](ingress-v1.yaml) 를 실행시키고 브라우저를 통해 도메인에 접속하면 쿠버네티스 서비스를 확인할 수 있다.
 ![image](https://user-images.githubusercontent.com/41066039/119450225-8f1c9780-bd6e-11eb-8913-812bc7dcda0e.png)

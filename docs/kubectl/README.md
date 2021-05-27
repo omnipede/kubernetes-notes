@@ -15,6 +15,11 @@ $ kubectl get nodes -o yaml
 $ kubectl get nodes -o json
 ```
 
+* Exec container
+```
+$ kubectl exec my-pod -c my-container -- /bin/bash
+```
+
 * Describe kube objects (object 상태 확인)
 ```
 # kubectl describe type/name

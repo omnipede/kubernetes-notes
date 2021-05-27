@@ -24,7 +24,7 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 ### ServiceAccount 리소스 생성
 
-```kubernetes-dashboard``` namespace 에 [Service Account](./user-service-account.yaml) 를 생성한다.
+```kubernetes-dashboard``` namespace 에 [Service Account](user-service-account.yaml) 를 생성한다.
 ```
 $ kubectl apply -f ./user-service-account.yaml
 ```
