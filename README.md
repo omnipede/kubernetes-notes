@@ -24,4 +24,4 @@
 1. [Deployment](./deployment/deployment.md)
 1. [Service](./service/service.md)
 1. [Ingress](./ingress/ingress.md)
-1. [Istio](./)
+1. [Istio](./istio/README.md)
