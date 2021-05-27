@@ -9,9 +9,9 @@
 * [Ingress 설정 방법](https://malwareanalysis.tistory.com/91)
 
 ## TODO
-* Istio 를 이용한 micro service 네트워킹
+* Istio 모니터링 / service mesh 시각화
 * Helm 이용한 차트 관리
-* Kubernetes cluster 구성
+* Kubernetes 설치 및 cluster 구성
 * Kubernetes GUI dashboard 사용해보기
 * Kubernetes role 관리
 
@@ -19,8 +19,9 @@
 
 1. [아키텍처](./architecture/architecture.md)
 1. [kubectl 명령어](./kubectl/kubectl.md)
-2. [Pod](./pod/pod.md)
-3. [ReplicaSet](./replicaset/replicaset.md)
-4. [Deployment](./deployment/deployment.md)
-5. [Service](./service/service.md)
-6. [Ingress](./ingress/ingress.md)
+1. [Pod](./pod/pod.md)
+1. [ReplicaSet](./replicaset/replicaset.md)
+1. [Deployment](./deployment/deployment.md)
+1. [Service](./service/service.md)
+1. [Ingress](./ingress/ingress.md)
+1. [Istio](./)
