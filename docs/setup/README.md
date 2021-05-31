@@ -62,7 +62,6 @@ $ sudo kubeadm init --pod-network-cidr=$(YOUR_CIDR)
 이 중 다음 명령어를 master node 에서 실행시켜준다.
 
 ```
-$ multipass shell master-k8s
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
