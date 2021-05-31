@@ -34,4 +34,5 @@ $ kubectl delete -f path/to/YOUR_KUBE_FILE.yaml
 
 $ kubectl delete pods --all
 $ kubectl delete deployment --all
+$ kubectl delete all --all -n $(NAME_SPACE)
 ```

@@ -6,12 +6,14 @@
 
 1. [아키텍처](docs/architecture/README.md)
 1. [kubectl 명령어](docs/kubectl/README.md)
+1. [클러스터 구성 방법](docs/setup/README.md)
 1. [Pod](docs/pod/README.md)
 1. [ReplicaSet](docs/replicaset/README.md)
 1. [Deployment](docs/deployment/README.md)
 1. [Service](docs/service/README.md)
 1. [Ingress](docs/ingress/README.md)
 1. [Istio](docs/istio/README.md)
+   - [Istio 시각화](docs/istio/visualization/README.md) 
 1. [GUI](docs/GUI/README.md)
 
 ## 참고자료
@@ -21,8 +23,6 @@
 * [Ingress 설정 방법](https://malwareanalysis.tistory.com/91)
 
 ## TODO
-* Istio 모니터링 / service mesh 시각화
 * Helm 이용한 차트 관리
-* Kubernetes 설치 및 cluster 구성
-* Kubernetes GUI dashboard 사용해보기
 * Kubernetes role 관리
+* 다중 master node 구성
