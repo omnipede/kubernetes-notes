@@ -54,7 +54,7 @@ $ sudo swapoff -a
 ### Master node
 
 ```
-$ sudo kubeadm init --pod-network-cidr=$(YOUR_CIDR)
+$ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
 
 (만약 [ERROR CRI]: container runtime is not running 에러 발생 시 https://velog.io/@makengi/K8s-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EA%B5%AC%EC%84%B1%EC%A4%91-%EC%97%90%EB%9F%AC 참조)
