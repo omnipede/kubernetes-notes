@@ -57,6 +57,8 @@ $ sudo swapoff -a
 $ sudo kubeadm init --pod-network-cidr=$(YOUR_CIDR)
 ```
 
+(만약 [ERROR CRI]: container runtime is not running 에러 발생 시 https://velog.io/@makengi/K8s-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EA%B5%AC%EC%84%B1%EC%A4%91-%EC%97%90%EB%9F%AC 참조)
+
 위 명령어를 실행시키면 ```kubeadm``` 은 콘솔에 두 가지 명령어를 출력시킨다. 이 명령어들을 기억하고 있어야 한다.
 
 이 중 다음 명령어를 master node 에서 실행시켜준다.
