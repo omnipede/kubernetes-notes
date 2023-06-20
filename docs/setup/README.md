@@ -117,3 +117,6 @@ whoami-deploy-85d8fd84b-qhrdn   1/1     Running   1          2d15h   192.168.2.7
 * [[추천] Kubernetes Multi-Node Cluster with MultiPass on Ubuntu 18.04 Desktop](https://medium.com/platformer-blog/kubernetes-multi-node-cluster-with-multipass-on-ubuntu-18-04-desktop-f80b92b1c6a7)
 * [Kubernetes Cluster Installation](https://velog.io/@dry8r3ad/Kubernetes-Cluster-Installation)
 * [Kubeadm 으로 k8s 구성](https://velog.io/@seunghyeon/Kubeadm%EC%9C%BC%EB%A1%9C-K8S-%EA%B5%AC%EC%84%B1)
+
+## Reset 방법
+https://wookiist.dev/143
